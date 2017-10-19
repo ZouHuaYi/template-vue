@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>template</title>
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+     <link rel="stylesheet" href="static/font.css">
+     <link rel="stylesheet" href="static/swiper.min.css">
+     <script type="text/javascript" src="/api/templates/wap/swiper.min.js"></script>
+     <script type="text/javascript" src="/api/templates/wap/index.js"></script>
   </head>
   <body>
     <div id="app"></div>
@@ -11,7 +15,6 @@
 	 (function(doc, win){ 
 		 var docE1 = doc.documentElement, 
 		 resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', 
-		 
 		 recalc = function(){ 
 			 var clientWidth = docE1.clientWidth; 
 			 if(!clientWidth) return;

@@ -4,7 +4,7 @@ import router from './router'
 import Axios from 'axios'
 import FastClick from 'fastclick'
 
-let ajaxGet=function(url,fn,type='html'){
+let ajaxGet=function(url,fn,type='json'){
 	Axios.get(/api/+'?'+url,{ responseType: type}).then(res=>{
 		if(type=='json'){
 			if(res.data.code){
@@ -23,10 +23,14 @@ let ajaxGet=function(url,fn,type='html'){
 let store={
 	debug: true,
 	state: {
-	   direction: 'in'
+	   direction: 'in',
+	   isloading: false
 	},
 	directionAction (val){
 		this.state.direction= val
+	},
+	loadingAction (val){
+		this.state.isloading=val
 	}
 }
 
@@ -40,6 +44,7 @@ history.setItem('/', 0)
 router.beforeEach((to,from,next)=>{
 	const toIndex = history.getItem(to.path)
     const fromIndex = history.getItem(from.path)
+    store.loadingAction(true)
     if(toIndex){
     	if(!fromIndex || parseInt(toIndex, 10) > parseInt(fromIndex, 10) || (toIndex === '0' && fromIndex === '0')){
     		store.directionAction ('in');
@@ -58,6 +63,9 @@ router.beforeEach((to,from,next)=>{
 	} else {
 	    next()
 	}
+})
+router.afterEach(function (to, from){
+ 	
 })
 
 Vue.prototype.$http=ajaxGet;

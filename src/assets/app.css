@@ -1,0 +1,110 @@
+html,body,h1,h2,h3,h4,h5,h6,p,input,textarea,ul,li,dl,dd,dt{margin: 0;padding: 0;font-weight: normal;font-size: 0.16rem}
+html{width: 100%;height: 100%;}
+body{width: 100%;height: 100%;overflow-x:hidden;}
+a{text-decoration:none;color: #666666}
+li{list-style: none;}
+img{border: none;}
+input,textarea{outline: none;}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  height: 100%;
+  width: 100%;
+		
+}
+.menu-nav{
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 0.46rem;
+	background: #000;
+}
+.menu-nav h2{
+  color: #fff;
+  height:0.46rem;
+  line-height: 0.46rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #EAEE42;
+  text-align:center;
+}
+.menu-nav .logo{
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: 0.03rem 0.1rem;
+}
+.menu-nav .menu-btn{
+  width: 0.3rem;
+  height: 0.3rem;
+  margin: 0.08rem 0.15rem 0.08rem 0.08rem;
+}
+.menu-nav .menu-btn i{
+   font-size: 0.30rem;
+   color: #EAEE42;
+   font-weight: 900;
+}
+.menu-bar .bar-header{
+	width:100%;
+  height: 0.45rem;
+  text-align: center;
+  line-height: 0.46rem;
+  border-bottom:0.01rem solid #ccc;
+  font-size:0.18rem;
+  color:#fff;
+  overflow:hidden;
+}
+.menu-bar ul{
+  background:#fff;
+}
+.menu-bar ul li{
+  width:100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding-left: 0.2rem; 
+  height: 0.4rem;
+  line-height: 0.4rem;
+  border-top: 1px solid #ccc;
+}
+.menu-bar ul li a{
+  font-size:0.14rem; 
+  color: #000;
+}
+.menu-bar ul li a.router-link-exact-active{
+  color:#F7E50D;
+}
+/*路由跳转的主要部分*/
+.route-out-enter-active,
+.route-out-leave-active,
+.route-in-enter-active,
+.route-in-leave-active {
+  will-change: transform;
+  transition: all 1000ms;
+  height: 100%;
+  top: 0.46rem;
+  position: absolute;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+.route-out-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.route-out-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.route-in-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.route-in-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
